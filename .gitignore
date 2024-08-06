@@ -1,0 +1,14 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+venv/
+*.dll
+*.keras
+*.pyd
+venv/Lib/site-packages/clang/native/libclang.dll
+

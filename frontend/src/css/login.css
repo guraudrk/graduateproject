@@ -1,0 +1,158 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .left-section {
+    text-align: center;
+    width:40%;
+  }
+ 
+  .logo-container {
+    opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 1.5s ease forwards;
+    position:absolute;
+    top:0;
+    left:40px;
+    
+   
+}
+
+
+/*이런 키워드를 통해 애니메이션의 이름을 정하고, 자세한 동작을 설계한다.*/
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+  
+}
+  
+  /*로그인 로고에 대한 설정. 부모 요소는 left-section이다.*/
+  .loginlogo{
+
+    width:7vw;
+    position:absolute;
+    top:0;
+    left:20px;
+    transform: translateX(-50%);
+    z-index:999; /*다른 요소들보다 위로 올리기 위한 z-index 설정*/
+    vertical-align: middle; /* 이미지를 텍스트와 수직 가운데 정렬 */
+
+  }
+
+
+
+  .right-section {
+    opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+    background-size: auto;/*배경 이미지가 요소 안에 전부 보이도록 설정한다.*/
+    width: 60%; /* 우측 이미지를 부모 요소의 50% 너비로 설정 */
+    height: 100vh; /* 뷰보트의 높이를 100프로로 설정해서 전체 화면을 채우도록 한다.*/
+    border-radius:15px;
+    background-position: center; /* 배경 이미지를 가운데 정렬 */
+    background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+    
+  }
+
+  .logintext1{
+    opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+    margin-bottom:40px;
+    margin-left:20px;
+    margin-right:20px;
+    font-size:14px;
+  }
+  .form-element1
+  {
+    opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+  animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 30px;
+  border: 1.5px solid rgba(0, 0, 255, 0.4); /* 기본 테두리 설정 */
+  border-radius: 10px; /* 테두리를 둥글게 만듦 */
+  padding: 10px; /* 내부 여백 설정 */
+  width: calc(100%); /* 부모 요소의 너비에 맞게 설정 */
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 너비를 계산 */
+  }
+  form {
+    display:flex;
+    flex-direction: column; /*요소들을 세로로 배치*/
+    width:calc(70%);
+  }
+  
+.form-element2 {
+    opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+  animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-right: 30px;
+  border: 1.5px solid rgba(0, 0, 255, 0.4); /* 기본 테두리 설정 */
+  border-radius: 10px; /* 테두리를 둥글게 만듦 */
+  padding: 10px; /* 내부 여백 설정 */
+  width: calc(100%); /* 부모 요소의 너비에 맞게 설정 */
+  box-sizing: border-box; /* 패딩과 테두리를 포함한 전체 너비를 계산 */
+}
+
+
+
+.logintext {
+  opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+    margin-bottom: 4px; /* 간격 조절 */
+    margin-left:20px;
+    margin-right:20px;
+    text-align: left;
+    font-size: 35px;
+    font-weight:normal;
+    color: black;
+
+}
+.logintext1{
+  opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+  margin-bottom: 40px; /* 간격 조절 */
+  text-align: left;
+  color: gray;
+}
+
+.form-element3{
+  opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 2s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+  height:40px;
+  border-radius: 10px;
+  background-color: skyblue;
+  margin-left:20px;
+  margin-right:20px;
+  margin-bottom: 40px; /* 간격 조절 */
+  text-decoration-color: white;
+  cursor:pointer; /*마우스 커서를 포인터로 변경*/
+  width:calc(100%);
+  
+}
+
+.form-element3:hover{
+  background-color: lightblue;
+  transform: translateY(-5px);
+}
+
+.gotosignup {
+  opacity: 0; /*요소의 투명도를 정할 수 있다.*/
+    animation: fadeIn 1.5s ease forwards; /*animation을 통해 페이지를 더 동적으로 만든다.*/
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #888; /* 일정한 회색의 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+.gotosignup:hover, /*방문한 상태일 때와 커서를 올렸을 때 색을 같게 하기 위해서는 이렇게 한다.*/
+.gotosignup:visited {
+  color: #888; /* 방문한 상태일 때도 색상 유지 */
+  transform: translateY(-5px);
+}
