@@ -1,0 +1,121 @@
+
+/*구글 폰트에서 한국 전통의 글꼴을 import 했다.*/
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Yeon+Sung&display=swap');
+body {
+  font-family: "East Sea Dokdo", sans-serif;
+  opacity: 0; /* 초기 상태를 투명하게 설정 */
+  animation: fadeIn 1.5s ease forwards; /* 애니메이션을 통해 페이지를 더 동적으로 만든다. */
+}
+
+/*이런 키워드를 통해 애니메이션의 이름을 정하고, 자세한 동작을 설계한다.
+위의 body에 fadeIn에 대한 animation을 설정함으로서 페이지 전체에 효과를 준다.*/
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+  
+}
+
+.background-image{
+  position: absolute; /* 절대 위치 */
+  left: 0;
+  width: 100%; /* 전체 화면 너비 */
+  height: 100%; /* 전체 화면 높이 */
+  background-size: cover; /* 배경 이미지가 화면에 꽉 차게 조정 */
+  background-position: center; /* 배경 이미지를 가운데로 정렬 */
+  z-index: -1; /* 다른 요소보다 뒤에 위치 */
+
+}
+
+.boardListTitle{
+
+
+  text-align: center;
+  font-size: 50px;
+  
+
+}
+
+.board-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.board-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.board-list-item {
+  border: black 2px solid;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+  width: calc(33% - 20px);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.board-list-item:hover {
+  transform: translateY(-5px);
+}
+
+.board-list-link {
+  text-decoration: none;
+  color: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.ifLogined {
+  font-size:20px;
+}
+.top-section{
+  font-size:20px;
+}
+
+.board-list-link h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.board-list-link p {
+  margin: 15px 0;
+  font-size: 1em;
+  color: #666;
+  flex-grow: 1;
+}
+
+.board-list-link small {
+  color: #999;
+  font-size: 0.875em;
+}
+.write-link {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  color: #007BFF;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+
+/*hover와 transform을 통해 버튼 클릭을 더 세련되게 만들 수 있다.*/
+.write-link:hover{
+  transform: translateY(-5px);
+}

@@ -1,0 +1,13 @@
+.top-section{
+    background-color: gray;
+    height:40px;
+  z-index:1; /*다른 요소 위에 배치*/
+    position:relative; /*다른 요소와의 위치 관리*/
+  }
+  
+  .bottom-section {
+    background-color: rgba(240, 240, 240, 1); /* 약간의 투명도를 가진 진한 흰색 */
+    height:70px;
+    z-index:1; /*다른 요소 위에 배치*/
+    position:relative; /*다른 요소와의 위치 관리*/
+  }
