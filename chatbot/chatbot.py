@@ -1,27 +1,4 @@
-#flask로 챗봇을 보낼 때 쓰는 코드. 잡다한 것은 집어치우고 챗봇관련 코드만 적는다.
-#이 코드를 vscode에서 실행할 때는 가상 환경 설정을 한다.
 
-
-#chatbot.py는 챗봇 로직만 처리하고, server.py는 서버 통신을 처리하는 역활을 담당한다.
-#이렇게, 코드를 분리하면 한번만 lstm을 훈련시키면 훈련된 모델을 사용해서 다양한 배포 환경에 적용 가능하다.
-
-#가상환경을 만들어서 딥러닝을 처리하는 것이 더 나아서, 가상 환경을 만들어서 딥러닝을 처리했다.
-"""
-# 프로젝트 디렉토리로 이동
-cd C:/Users/User/project2024/kingsejong
-
-# 가상 환경 생성
-C:/Users/User/AppData/Local/Programs/Python/Python311/python.exe -m venv venv
-
-# 가상 환경 활성화
-.\venv\Scripts\activate
-
-# 패키지 설치
-pip install numpy konlpy nltk scikit-learn tensorflow
-
-# 스크립트 실행
-python c:/Users/User/project2024/kingsejong/chatbot/chatbot.py
-"""
 
 import re
 
