@@ -1,13 +1,16 @@
 package com.example.kingsejong;
 
-import org.junit.jupiter.api.Test;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class KingsejongApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+	public class KingsejongApplication {
 
+		public static void main(String[] args) {
+			SpringApplication.run(KingsejongApplication.class, args);
+		}
+
+	}
 }

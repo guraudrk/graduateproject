@@ -69,7 +69,7 @@ function App() {
           {currentUser &&(
             <div className="ifLogined">
               <Link to="/bulletinboard">게시판</Link>
-              <Link to="/aikingsejong">AI 세종대왕 사용</Link>
+              <Link to="/chat">AI 세종대왕 사용</Link>
               <Link to="/signup">회원가입</Link>
               <Link onClick={handleLogout} to="/main">로그아웃</Link> 
 
