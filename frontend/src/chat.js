@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Chat() {
+  useEffect(() => {
+    // 브라우저의 히스토리에 'chat' 페이지를 추가하지 않고 리디렉션
+    window.location.replace("https://stremlit-chat-9ny6puwiytdlejhikqq4wg.streamlit.app/");
+  }, []);
+
   return (
-    <div style={{ width: '100%', height: '100vh', overflow: 'hidden' }}>
-      <iframe
-        src="https://stremlit-chat-5bb5erxggymdbmds98pjid.streamlit.app" // 실제 Streamlit 앱 URL로 수정
-        style={{ width: '100%', height: '100%', border: 'none' }}
-        title="AI세종대왕"
-        sandbox="allow-same-origin allow-scripts"
-      />
+    <div style={{ width: '100%', height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* 로딩 중 메시지 */}
+      <p style={{ fontSize: '48px' }}>AI세종대왕으로 이동중...</p>
     </div>
   );
 }
