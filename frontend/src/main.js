@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './css/main.css';
 
 
@@ -78,7 +78,7 @@ function App() {
           {/*로그아웃 되었을 때 보여지는 항목들*/ }
           {!currentUser&&(
             <div className="ifNotLogined">
-              <Link to="/aikingsejong">AI 세종대왕 사용</Link>
+              <Link to="/chat">AI 세종대왕 사용</Link>
               <Link to="/signup">회원가입</Link>
               <Link to="/login">로그인</Link>
               </div>
