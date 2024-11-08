@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.1.0</version> <!-- 최신 버전으로 변경 -->
+    <version>3.1.0</version>
     <relativePath/>
   </parent>
 
@@ -17,7 +17,7 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <java.version>17</java.version> <!-- Java 버전도 17로 설정 -->
+    <java.version>17</java.version>
   </properties>
 
   <dependencies>
@@ -69,16 +69,18 @@
       <version>42.5.4</version>
     </dependency>
 
-    <!-- Logback Classic 및 Core 추가 -->
+    <!-- Logback Classic 추가 -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.2.11</version>
     </dependency>
+
+    <!-- SLF4J API 추가 -->
     <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-core</artifactId>
-      <version>1.2.11</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.36</version> <!-- 호환성 있는 버전 사용 -->
     </dependency>
 
     <!-- Spring Boot Starter Test -->
