@@ -146,7 +146,7 @@ public class Controller {
         }
     }
 
-    @GetMapping("/{path:[^\\.]*}")
+    @GetMapping(value = { "/{path:[^\\.]*}", "/**/{path:[^\\.]*}" })
     public String forward() {
         return "forward:/index.html";
     }
