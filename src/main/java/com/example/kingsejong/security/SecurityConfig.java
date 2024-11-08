@@ -19,14 +19,10 @@ public class SecurityConfig implements WebMvcConfigurer {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
-        .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 추가
-        .csrf(csrf -> csrf.disable()) // 필요한 경우 CSRF 비활성화
-        .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/api/checkemail", "/api/checkid", "/api/signup", "/api/login",
-                "/api/findid", "/api/findpassword", "/api/board", "/api/board/**",
-                "/api/main", "/api/currentUser") // 요청에 대한 보안 설정
-            .permitAll() // 인증 없이 접근 허용
-            .anyRequest().authenticated())
+        .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 유지
+        .csrf(csrf -> csrf.disable()) // CSRF 비활성화
+        .authorizeRequests(authorize -> authorize
+            .anyRequest().permitAll()) // 모든 요청에 대해 접근 허용
         .logout(logout -> logout.permitAll());
 
     return http.build();
@@ -43,5 +39,4 @@ public class SecurityConfig implements WebMvcConfigurer {
     source.registerCorsConfiguration("/**", configuration);
     return source;
   }
-
 }

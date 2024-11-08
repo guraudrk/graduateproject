@@ -1,0 +1,12 @@
+com\example\kingsejong\KingsejongApplication.class
+com\example\kingsejong\repository\BoardRepository.class
+com\example\kingsejong\controller\Controller.class
+com\example\kingsejong\service\Userservice.class
+com\example\kingsejong\service\BoardService.class
+com\example\kingsejong\controller\BoardController.class
+com\example\kingsejong\dto\UserDTO$LoginRequest.class
+com\example\kingsejong\security\SecurityConfig.class
+com\example\kingsejong\entity\Board.class
+com\example\kingsejong\entity\UserEntity.class
+com\example\kingsejong\repository\UserRepository.class
+com\example\kingsejong\dto\UserDTO.class
