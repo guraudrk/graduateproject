@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Aikingsejong from './aikingsejong';
 import App from './App';
 import BoardDetail from './BoardDetail';
@@ -19,6 +19,7 @@ root.render(
   <StrictMode>
     <Router>
       <Routes>
+      <Route path="*" element={<App />} />
         <Route exact path="/" element={<App />} />
         <Route path="/main" element={<Main />} />
         <Route path="/login" element={<Login />} />
