@@ -22,7 +22,8 @@ public class SecurityConfig implements WebMvcConfigurer {
         .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정 유지
         .csrf(csrf -> csrf.disable()) // CSRF 비활성화
         .authorizeRequests(authorize -> authorize
-            .anyRequest().permitAll()) // 모든 요청에 대해 접근 허용
+            .requestMatchers("/actuator/**").permitAll() // Actuator 엔드포인트 접근 허용
+            .anyRequest().authenticated()) // 나머지 요청은 인증 필요
         .logout(logout -> logout.permitAll());
 
     return http.build();
