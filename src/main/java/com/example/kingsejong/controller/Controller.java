@@ -146,4 +146,9 @@ public class Controller {
         }
     }
 
+    @GetMapping("/{path:[^\\.]*}")
+    public String forward() {
+        return "forward:/index.html";
+    }
+
 }
