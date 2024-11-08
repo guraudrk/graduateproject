@@ -23,7 +23,7 @@ public class SecurityConfig implements WebMvcConfigurer {
         .csrf(csrf -> csrf.disable()) // CSRF 비활성화
         .authorizeRequests(authorize -> authorize
             .requestMatchers("/actuator/**").permitAll() // Actuator 엔드포인트 접근 허용
-            .anyRequest().authenticated()) // 나머지 요청은 인증 필요
+            .anyRequest().permitAll()) // 나머지 요청은 허용
         .logout(logout -> logout.permitAll());
 
     return http.build();
@@ -32,8 +32,12 @@ public class SecurityConfig implements WebMvcConfigurer {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://52.79.138.214:3000")); // 로컬 및 EC2 주소
-                                                                                                          // 추가
+    configuration
+        .setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://52.79.138.214:3000", "http://52.79.138.214")); // 로컬
+                                                                                                                         // 및
+                                                                                                                         // EC2
+                                                                                                                         // 주소
+                                                                                                                         // 추가
     configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     configuration.setAllowedHeaders(Arrays.asList("*"));
     configuration.setAllowCredentials(true); // CORS에 대한 인증 허용
