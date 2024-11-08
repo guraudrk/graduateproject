@@ -69,10 +69,15 @@
       <version>42.5.4</version>
     </dependency>
 
-    <!-- Logback Classic 추가 -->
+    <!-- Logback Classic 및 Core 추가 -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
+      <version>1.2.11</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
       <version>1.2.11</version>
     </dependency>
 
@@ -80,7 +85,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.36</version> <!-- 호환성 있는 버전 사용 -->
+      <version>1.7.36</version>
     </dependency>
 
     <!-- Spring Boot Starter Test -->
