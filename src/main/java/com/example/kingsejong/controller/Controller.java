@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
                 // 데이터를 응답하는 것이다.
 // springboot, thymeleaf을 통해 풀스택 어플리케이션을 만들었다면, restcontroller를 사용하지 않았을 것이다.
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://http://52.79.138.214:8080/", allowCredentials = "true")
+@CrossOrigin(origins = "http://52.79.138.214:8080/", allowCredentials = "true")
 public class Controller {
 
     // service를 정의한다.
