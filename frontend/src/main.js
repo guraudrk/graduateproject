@@ -91,7 +91,9 @@ function App() {
           <h1>AI 세종대왕에 오신 것을 환영합니다!</h1>
           <p>AI 세종대왕은 세종대왕님과 대화할 수 있는 서비스입니다.</p>
           <p>세종대왕님에 대한 많은 정보를 얻어가세요!</p>
-          <button onClick={() => { /* 버튼 클릭 시 동작할 내용 */ }}>Click Me</button>
+          <button onClick={() => { window.location.href = "/chat"; }}>
+  Click Me
+</button>
           
         </div>
       </div>
