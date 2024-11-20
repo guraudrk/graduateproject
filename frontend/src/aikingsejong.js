@@ -8,9 +8,10 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const result = await axios.post('http://localhost:5000/aikingsejong', { message: input });
-      console.log('Server response:', result.data);  // 로그 추가
-      setResponse(result.data.response);  // 서버 응답에서 'response' 필드 사용
+      // 절대 경로(http://localhost:5000)를 상대 경로로 변경
+      const result = await axios.post('/aikingsejong', { message: input });
+      console.log('Server response:', result.data); // 로그 추가
+      setResponse(result.data.response); // 서버 응답에서 'response' 필드 사용
     } catch (error) {
       console.error('Error sending message:', error);
     }

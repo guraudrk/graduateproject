@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
-import './css/BoardList.css'
+import { Link, useNavigate } from 'react-router-dom';
+import './css/BoardList.css';
 //이미지 url을 이미지 저장해 두어야, s3 기능을 쉽게 사용할 수 있다.
 const imageurl = "https://aikingsejong.s3.ap-northeast-2.amazonaws.com/360_F_519688679_DSpUecF3DU21l86EnlgCijX8A4zGZg4Q.jpg"
 function BoardList(){
@@ -36,7 +36,7 @@ function BoardList(){
       }
       
       //axios를 통해 백엔드에서 게시판 관련 정보를 받아온다.
-        axios.get('http://localhost:8080/api/board')
+        axios.get('/api/board')
         .then(response=>{
             setdatas(response.data); //응답받은 데이터를 토대로 data를 set 한다.
             //여기서 받아온 데이터를 토대로 게시판들을 보여주는 것이다.
