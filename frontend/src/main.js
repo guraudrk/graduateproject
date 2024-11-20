@@ -91,7 +91,7 @@ function App() {
           <h1>AI 세종대왕에 오신 것을 환영합니다!</h1>
           <p>AI 세종대왕은 세종대왕님과 대화할 수 있는 서비스입니다.</p>
           <p>세종대왕님에 대한 많은 정보를 얻어가세요!</p>
-          <button onClick={() => { window.location.href = "/chat"; }}>
+          <button onClick={() => { window.location.href = "https://stremlit-chat-ilv4bn5rmirhgxcenbzzou.streamlit.app/"; }}>
   Click Me
 </button>
           
