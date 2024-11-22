@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './css/main.css';
 
-
 //이미지 url을 이미지 지정해 두어야, s3 기능을 쉽게 사용할 수 있다.
 const imageurl = "https://aikingsejong.s3.ap-northeast-2.amazonaws.com/2013100715011489.jpg";
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 function Chat() {
   useEffect(() => {
     // 브라우저의 히스토리에 'chat' 페이지를 추가하지 않고 리디렉션(replace를 활용한다.)

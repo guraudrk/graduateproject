@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './css/BoardDetail.css';
-
 // 이미지 URL 지정
 const imageurl = "https://aikingsejong.s3.ap-northeast-2.amazonaws.com/360_F_519688679_DSpUecF3DU21l86EnlgCijX8A4zGZg4Q.jpg";
 
@@ -94,7 +93,7 @@ function BoardDetail() {
       <div className="bottom-section">
         {currentUserId && (
           <div className="ifLogined">
-            <Link to="/aikingsejong">AI 세종대왕 사용</Link>
+            <Link to="/chat">AI 세종대왕 사용</Link>
             <Link onClick={handleLogout} to="/main">로그아웃</Link>
             <Link to="/main">메인 페이지로 이동</Link>
             <Link to="/bulletinboard">게시판 페이지로 이동</Link>

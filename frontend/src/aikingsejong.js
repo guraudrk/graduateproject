@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-
 function App() {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState('');

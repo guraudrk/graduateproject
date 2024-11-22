@@ -79,7 +79,7 @@ function BoardList(){
     {
       userId &&(
         <div className="ifLogined">
-          <Link to="/aikingsejong">AI 세종대왕 사용</Link>
+          <Link to="/chat">AI 세종대왕 사용</Link>
           <Link onClick={handleLogout} to="/main">로그아웃</Link>
           <Link to="/main">메인 페이지로 이동</Link>
           </div>
