@@ -1,0 +1,48 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때만 실행
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. 소스 코드 체크아웃
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Java 및 Node.js 설치
+    - name: Setup environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openjdk-11-jdk
+        curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+
+    # 3. React 빌드
+    - name: Build React
+      run: |
+        cd frontend
+        npm install
+        npm run build
+
+    # 4. Spring Boot 빌드
+    - name: Build Spring Boot
+      run: |
+        cd backend
+        ./mvnw clean package
+
+    # 5. EC2에 JAR 파일 배포 및 실행
+    - name: Deploy to EC2
+      env:
+        REMOTE_HOST: 52.79.138.214        # EC2 퍼블릭 IP
+        REMOTE_USER: ubuntu               # EC2 사용자 이름
+        KEY_PATH: ${{ secrets.EC2_KEY }}  # GitHub Secrets에 저장된 PEM 키
+      run: |
+        echo "$KEY_PATH" > private.pem
+        chmod 600 private.pem
+        scp -i private.pem backend/target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ubuntu/deploy/
+        ssh -i private.pem $REMOTE_USER@$REMOTE_HOST "pkill -f java || true && nohup java -jar /home/ubuntu/deploy/kingsejong-1.0-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1 &"
