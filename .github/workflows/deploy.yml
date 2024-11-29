@@ -64,5 +64,5 @@ jobs:
         REMOTE_USER: ubuntu               # EC2 사용자 이름
         KEY_PATH: ${{ secrets.EC2_KEY }}  # GitHub Secrets에 저장된 PEM 키
       run: |
-        scp -i private.pem target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ubuntu/deploy/
-        ssh -i private.pem $REMOTE_USER@$REMOTE_HOST "pkill -f java || true && nohup java -jar /home/ubuntu/deploy/kingsejong-1.0-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1 &"
+        scp -o StrictHostKeyChecking=no -i private.pem target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ubuntu/deploy/
+        ssh -o StrictHostKeyChecking=no -i private.pem $REMOTE_USER@$REMOTE_HOST "pkill -f java || true && nohup java -jar /home/ubuntu/deploy/kingsejong-1.0-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1 &"
