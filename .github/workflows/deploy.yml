@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout code
+    # 1. 소스 코드 체크아웃
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Setup environment
+    # 2. 환경 설정
     - name: Setup Java 17
       uses: actions/setup-java@v3
       with:
@@ -31,7 +31,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y maven
 
-    # 3. Build React
+    # 3. React 빌드
     - name: Build React
       run: |
         cd frontend
@@ -40,24 +40,28 @@ jobs:
         mkdir -p ../src/main/resources/static/
         cp -r build/* ../src/main/resources/static/
 
-    # 4. Build Spring Boot
+    # 4. Spring Boot 빌드
     - name: Build Spring Boot
       run: |
         mvn clean package
 
-    # 5. Setup PEM Key
+    # 5. PEM 키 설정 및 검증
     - name: Setup PEM Key
       run: |
         printf "%s\n" "$KEY_PATH" > private.pem
         chmod 600 private.pem
 
-    # 6. Add EC2 to known_hosts
+    - name: Verify PEM Key
+      run: |
+        cat private.pem
+
+    # 6. EC2 호스트를 Known Hosts에 추가
     - name: Add EC2 to known_hosts
       run: |
         mkdir -p ~/.ssh
         ssh-keyscan -H 52.79.138.214 >> ~/.ssh/known_hosts
 
-    # 7. Deploy to EC2
+    # 7. EC2에 JAR 파일 배포 및 실행
     - name: Deploy to EC2
       env:
         REMOTE_HOST: 52.79.138.214
