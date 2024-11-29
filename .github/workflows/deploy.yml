@@ -27,7 +27,9 @@ jobs:
       run: |
         cd frontend
         npm install
-        npm run build
+        npx update-browserslist-db@latest
+        npm install --save-dev @babel/plugin-proposal-private-property-in-object
+        CI=false npm run build
 
     # 4. Spring Boot 빌드
     - name: Build Spring Boot
