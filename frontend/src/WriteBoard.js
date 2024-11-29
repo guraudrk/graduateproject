@@ -26,7 +26,7 @@ function WriteBoard() {
       alert("로그인되지 않았습니다. 글쓰기 기능을 이용하시려면 로그인해주세요.");
       navigate("/main");
     }
-  }, []);
+  }, [navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

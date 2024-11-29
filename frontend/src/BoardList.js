@@ -47,7 +47,7 @@ function BoardList(){
 
         // 페이지가 로드될 때 fade-in 클래스를 추가
         document.body.classList.add('fade-in');
-    },[]);
+    },[navigate]);
 
     //로그아웃 시 작동하는 함수
     const handleLogout = ()=> {
