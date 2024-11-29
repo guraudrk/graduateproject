@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # main 브랜치에 푸시될 때만 실행
+      - main  # main 브랜치에 푸시될 때 실행
 
 jobs:
   deploy:
@@ -14,7 +14,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. Java 및 Node.js 설치
+    # 2. 환경 설정: Java와 Node.js 설치
     - name: Setup environment
       run: |
         sudo apt-get update
@@ -27,14 +27,13 @@ jobs:
       run: |
         cd frontend
         npm install
-        npx update-browserslist-db@latest
-        npm install --save-dev @babel/plugin-proposal-private-property-in-object
         CI=false npm run build
+        cp -r build/* ../kingsejong/src/main/resources/static/
 
     # 4. Spring Boot 빌드
     - name: Build Spring Boot
       run: |
-        cd backend
+        cd kingsejong
         ./mvnw clean package
 
     # 5. EC2에 JAR 파일 배포 및 실행
@@ -46,5 +45,5 @@ jobs:
       run: |
         echo "$KEY_PATH" > private.pem
         chmod 600 private.pem
-        scp -i private.pem backend/target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ubuntu/deploy/
+        scp -i private.pem kingsejong/target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ubuntu/deploy/
         ssh -i private.pem $REMOTE_USER@$REMOTE_HOST "pkill -f java || true && nohup java -jar /home/ubuntu/deploy/kingsejong-1.0-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1 &"
