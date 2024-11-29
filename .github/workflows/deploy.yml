@@ -28,6 +28,7 @@ jobs:
         cd frontend
         npm install
         CI=false npm run build
+        mkdir -p ../kingsejong/src/main/resources/static/
         cp -r build/* ../kingsejong/src/main/resources/static/
 
     # 4. Spring Boot 빌드
