@@ -45,9 +45,10 @@ jobs:
       run: |
         mvn clean package
 
-    # 5. EC2 호스트를 Known Hosts에 추가 (보안 강화)
+    # 5. EC2 호스트를 Known Hosts에 추가
     - name: Add EC2 to known_hosts
       run: |
+        mkdir -p ~/.ssh
         ssh-keyscan -H 52.79.138.214 >> ~/.ssh/known_hosts
 
     # 6. EC2에 JAR 파일 배포 및 실행
