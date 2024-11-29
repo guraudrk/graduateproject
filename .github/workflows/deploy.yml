@@ -48,7 +48,7 @@ jobs:
     # 5. PEM 키 설정
     - name: Setup PEM Key
       run: |
-        echo -e "$KEY_PATH" > private.pem
+        printf "%s\n" "$KEY_PATH" > private.pem
         chmod 600 private.pem
 
     # 6. EC2 호스트를 Known Hosts에 추가
