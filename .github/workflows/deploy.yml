@@ -47,26 +47,23 @@ jobs:
 
     # 5. PEM 키 설정 및 검증
     - name: Setup PEM Key
+      env:
+        EC2_KEY: ${{ secrets.EC2_KEY }}
       run: |
-        printf "%s\n" "$KEY_PATH" > private.pem
+        printf "%s\n" "$EC2_KEY" > private.pem
         chmod 600 private.pem
-
-    - name: Verify PEM Key
-      run: |
-        cat private.pem
 
     # 6. EC2 호스트를 Known Hosts에 추가
     - name: Add EC2 to known_hosts
       run: |
         mkdir -p ~/.ssh
-        ssh-keyscan -H 52.79.138.214 >> ~/.ssh/known_hosts
+        ssh-keyscan -H 54.180.244.4 >> ~/.ssh/known_hosts
 
     # 7. EC2에 JAR 파일 배포 및 실행
     - name: Deploy to EC2
       env:
-        REMOTE_HOST: 52.79.138.214
-        REMOTE_USER: ubuntu
-        KEY_PATH: ${{ secrets.EC2_KEY }}
+        REMOTE_HOST: 54.180.244.4
+        REMOTE_USER: ec2-user
       run: |
-        scp -o StrictHostKeyChecking=no -i private.pem target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ubuntu/deploy/
-        ssh -o StrictHostKeyChecking=no -i private.pem $REMOTE_USER@$REMOTE_HOST "pkill -f java || true && nohup java -jar /home/ubuntu/deploy/kingsejong-1.0-SNAPSHOT.jar > /home/ubuntu/app.log 2>&1 &"
+        scp -o StrictHostKeyChecking=no -i private.pem target/kingsejong-1.0-SNAPSHOT.jar $REMOTE_USER@$REMOTE_HOST:/home/ec2-user/deploy/
+        ssh -o StrictHostKeyChecking=no -i private.pem $REMOTE_USER@$REMOTE_HOST "pkill -f java || true && nohup java -jar /home/ec2-user/deploy/kingsejong-1.0-SNAPSHOT.jar > /home/ec2-user/app.log 2>&1 &"
