@@ -59,7 +59,7 @@ jobs:
         mkdir -p ~/.ssh
         ssh-keyscan -H 54.180.244.4 >> ~/.ssh/known_hosts
 
-    # 7. EC2에 JAR 파일 배포 및 실행
+    # 7. EC2에 JAR 파일 배포 및 실행!
     - name: Deploy to EC2
       env:
         REMOTE_HOST: 54.180.244.4
